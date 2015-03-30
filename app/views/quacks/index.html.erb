@@ -1,12 +1,25 @@
-<div class="well">
-  <%= link_to "Quack", new_quack_path %>
-</div>
-<div class="well">
-  <% if @quacks.any? %>
-    <% @quacks.each do |quack| %>
-      <%= quack.body %>
-    <% end %>
-  <% else %>
-    Get quacking!
-  <% end %>
+<div class="row">
+  <div class="col-sm-2 well">
+    <%= link_to "Quack", new_quack_path, class: "btn btn-success" %>
+  </div>
+  <div class="col-sm-8">
+    <div>
+      <% if @quacks.any? %>
+        <% @quacks.each do |quack| %>
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title"><%= quack.user.email %></h3>
+            </div>
+            <div class="panel-body">
+            <%= quack.body %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        Get quacking!
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-2"></div>
+
 </div>
