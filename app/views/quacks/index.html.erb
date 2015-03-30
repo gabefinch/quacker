@@ -1,0 +1,5 @@
+<div class="jumbotron">
+  <% if user_signed_in? %>
+    <h1><%= current_user.email %></h1>
+  <% end %>
+</div>
