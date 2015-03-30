@@ -1,6 +1,6 @@
 class QuacksController < ApplicationController
   def index
-    @quacks = Quack.all
+    @quacks = Quack.all.order('created_at DESC')
   end
   def new
     @quack = Quack.new
@@ -9,11 +9,13 @@ class QuacksController < ApplicationController
     @quack = Quack.new(quack_params)
     @quack.user = current_user
     if @quack.save
+      respond_to do |format|
+        format.html { redirect_to quacks_path }
+        format.js
+      end
       flash[:notice] = "Quack successful!"
-      redirect_to quacks_path
     else
       flash[:alert] = "Failure. Please retry."
-      redirect :back
     end
   end
 

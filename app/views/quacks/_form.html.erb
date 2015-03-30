@@ -1,9 +1,9 @@
-<div class="panel panel-primary">
+<div class="panel panel-primary" id="form_box">
   <div class="panel-heading">
     <h3 class="panel-title">New Quack</h3>
   </div>
   <div class="panel-body">
-    <%= bootstrap_form_for @quack do |f| %>
+    <%= bootstrap_form_for @quack, remote: true do |f| %>
       <%= f.text_area :body %>
       <%= f.submit "Quack", class: 'btn btn-info' %>
     <% end %>
