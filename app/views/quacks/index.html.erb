@@ -1,5 +1,12 @@
-<div class="jumbotron">
-  <% if user_signed_in? %>
-    <h1><%= current_user.email %></h1>
+<div class="well">
+  <%= link_to "Quack", new_quack_path %>
+</div>
+<div class="well">
+  <% if @quacks.any? %>
+    <% @quacks.each do |quack| %>
+      <%= quack.body %>
+    <% end %>
+  <% else %>
+    Get quacking!
   <% end %>
 </div>
