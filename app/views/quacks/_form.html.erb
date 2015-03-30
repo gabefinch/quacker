@@ -1,0 +1,11 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">New Quack</h3>
+  </div>
+  <div class="panel-body">
+    <%= bootstrap_form_for @quack do |f| %>
+      <%= f.text_area :body %>
+      <%= f.submit "Quack", class: 'btn btn-info' %>
+    <% end %>
+  </div>
+</div>
