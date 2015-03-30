@@ -18,6 +18,16 @@ class QuacksController < ApplicationController
       flash[:alert] = "Failure. Please retry."
     end
   end
+  def destroy
+    @quack = Quack.find(params[:id])
+    @quack.destroy
+    respond_to do |format|
+      format.html { redirect_to quacks_path }
+      format.js
+    end
+    flash[:alert] = "Quack deleted"
+
+  end
 
 
 # PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE PRIVATE
