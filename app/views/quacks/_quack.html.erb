@@ -1,9 +1,9 @@
-<div class="panel panel-primary" id="quack_panel_<%= @quack.id %>">
+<div class="panel panel-primary" id="quack_panel_<%= quack.id %>">
   <div class="panel-heading">
-    <h3 class="panel-title"><%= @quack.user.email %></h3>
+    <h3 class="panel-title"><%= quack.user.email %><small class="pull-right"><%= distance_of_time_in_words_to_now(quack.created_at) %> ago</small></h3>
   </div>
   <div class="panel-body">
-  <%= @quack.body %>
-  <%= link_to("Delete", quack_path(@quack),:data => {:confirm => "Are you sure?", :method => "delete"}, remote: true, class: "btn btn-xs pull-right") %>
+  <%= quack.body %>
+  <%= link_to("Delete", quack_path(quack),:data => {:confirm => "Are you sure?", :method => "delete"}, remote: true, class: "btn btn-xs pull-right") %>
   </div>
 </div>
